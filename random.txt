@@ -1,0 +1,64 @@
+🏗️ Project Pipeline: LLM Query Routing Optimizer
+
+The Story
+A mid-size AI company runs a customer support + internal knowledge base chatbot. They're spending too much on LLM API calls. Different query types don't all need GPT-4 — a simple FAQ doesn't need the same model as a complex legal document summary. Goal: route each query type to the cheapest model that still meets quality requirements.
+
+Step 1 — Define Your Data
+You'll hardcode/simulate this. No APIs needed.
+5 Models with known public pricing:
+ModelCost per 1K tokens ($)Quality Score (1-10)GPT-4o0.0059.5Claude Sonnet0.0039.0Gemini 1.5 Pro0.00258.5Llama 3 (local)0.00017.5Mistral 7B0.00027.0
+8 Query Types with monthly volume + token avg + min quality needed:
+Query TypeMonthly VolumeAvg TokensMin QualitySimple FAQ50002007.0Code generation30008009.0Summarization40006008.0Sentiment analysis60001507.0Legal doc analysis100015009.5Translation35004008.0Data extraction25005008.5Casual chitchat70001007.0
+
+Step 2 — Formulate the LP Problem
+Decision variable: x[i][j] = 1 if query type i is assigned to model j, else 0
+Objective: Minimize total monthly cost
+Minimize: Σ x[i][j] × volume[i] × avg_tokens[i] × cost_per_token[j]
+Constraints:
+
+Each query type assigned to exactly 1 model
+Assigned model's quality ≥ query's min quality requirement
+Optional: budget cap constraint (e.g. max $500/month)
+
+This is a Binary Integer LP — perfect for PuLP.
+
+Step 3 — Solve with PuLP
+Write the model, solve it, extract which model handles which query type and what the total monthly cost is.
+
+Step 4 — Baseline Comparison (the "business impact" part)
+Calculate what it would cost if you routed everything to GPT-4o (worst case / naive approach). Then compare:
+Naive cost (all GPT-4):   $X
+Optimized cost:           $Y
+Savings:                  $Z (P%)
+This is your headline result — makes the project feel real.
+
+Step 5 — Data Analysis & Visualization
+4 plots:
+
+Bar chart: cost per query type (optimized vs naive)
+Pie chart: which model handles what % of queries
+Bar chart: monthly volume distribution across models
+Table: final routing assignments with cost breakdown
+
+Libraries: matplotlib, pandas, pulp — all free.
+
+Step 6 — Sensitivity Analysis (makes it 10x more impressive)
+Ask: what happens if GPT-4o drops its price by 50%? Does the routing change?
+Re-run the LP with modified costs and show how assignments shift. This is what real ops research teams do.
+
+Step 7 — Package It
+Structure:
+llm_routing_optimizer/
+│
+├── data/
+│   └── query_data.csv        # your simulated data
+│   └── model_data.csv
+│
+├── optimizer.py              # PuLP LP model
+├── analysis.py               # EDA + visualizations
+├── sensitivity.py            # price sensitivity runs
+├── report.ipynb              # final notebook showing everything
+└── README.md
+
+Brief Step-by-Step Approach Summary
+StepWhat you're doing1Define realistic data (hardcoded, no API needed)2Write the math — objective function + constraints on paper first3Code it in PuLP, solve, print assignments4Compare against naive all-GPT4 baseline5Visualize cost savings, routing distribution6Sensitivity analysis — what if prices change7Clean notebook + README, push to GitHub

@@ -1,0 +1,11 @@
+query_type,monthly_volume,avg_tokens,min_quality_required
+Simple FAQ,5000,200,7.0
+Code Generation,3000,800,9.0
+Document Summarization,4000,600,8.5
+Sentiment Analysis,6000,150,7.0
+Legal Document Analysis,1000,1500,9.5
+Language Translation,3500,400,8.0
+Data Extraction,2500,500,8.5
+Casual Chitchat,7000,100,7.0
+Product Recommendation,4500,300,8.0
+Bug Report Triage,2000,700,8.5

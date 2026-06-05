@@ -1,0 +1,88 @@
+{
+  "assignments": {
+    "Simple FAQ": {
+      "model": "Llama 3 70B",
+      "monthly_cost": 0.1,
+      "volume": 5000,
+      "avg_tokens": 200,
+      "quality_score": 7.5,
+      "min_quality": 7.0
+    },
+    "Code Generation": {
+      "model": "Claude Sonnet 4.5",
+      "monthly_cost": 7.2,
+      "volume": 3000,
+      "avg_tokens": 800,
+      "quality_score": 9.0,
+      "min_quality": 9.0
+    },
+    "Document Summarization": {
+      "model": "Claude Sonnet 4.5",
+      "monthly_cost": 7.2,
+      "volume": 4000,
+      "avg_tokens": 600,
+      "quality_score": 9.0,
+      "min_quality": 8.5
+    },
+    "Sentiment Analysis": {
+      "model": "Llama 3 70B",
+      "monthly_cost": 0.09,
+      "volume": 6000,
+      "avg_tokens": 150,
+      "quality_score": 7.5,
+      "min_quality": 7.0
+    },
+    "Legal Document Analysis": {
+      "model": "GPT-5.5",
+      "monthly_cost": 7.5,
+      "volume": 1000,
+      "avg_tokens": 1500,
+      "quality_score": 9.5,
+      "min_quality": 9.5
+    },
+    "Language Translation": {
+      "model": "Gemini 3.1 Flash-Lite",
+      "monthly_cost": 0.35,
+      "volume": 3500,
+      "avg_tokens": 400,
+      "quality_score": 8.0,
+      "min_quality": 8.0
+    },
+    "Data Extraction": {
+      "model": "Claude Sonnet 4.5",
+      "monthly_cost": 3.75,
+      "volume": 2500,
+      "avg_tokens": 500,
+      "quality_score": 9.0,
+      "min_quality": 8.5
+    },
+    "Casual Chitchat": {
+      "model": "Llama 3 70B",
+      "monthly_cost": 0.07,
+      "volume": 7000,
+      "avg_tokens": 100,
+      "quality_score": 7.5,
+      "min_quality": 7.0
+    },
+    "Product Recommendation": {
+      "model": "Gemini 3.1 Flash-Lite",
+      "monthly_cost": 0.3375,
+      "volume": 4500,
+      "avg_tokens": 300,
+      "quality_score": 8.0,
+      "min_quality": 8.0
+    },
+    "Bug Report Triage": {
+      "model": "Claude Sonnet 4.5",
+      "monthly_cost": 4.2,
+      "volume": 2000,
+      "avg_tokens": 700,
+      "quality_score": 9.0,
+      "min_quality": 8.5
+    }
+  },
+  "total_optimized_cost": 30.7975,
+  "baseline_cost": 71.5,
+  "savings": 40.7025,
+  "savings_pct": 56.93
+}
