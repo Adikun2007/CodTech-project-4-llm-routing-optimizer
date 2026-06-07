@@ -1,6 +1,3 @@
-# Step 2 — optimizer.py (the core file)
-# This is your main file. It does 4 things in order:
-
 # Load both CSVs using pandas
 # Build the LP problem in PuLP — define decision variables, objective function, constraints
 # Solve it — PuLP calls the solver, gets optimal assignments
