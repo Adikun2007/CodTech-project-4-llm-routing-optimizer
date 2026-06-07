@@ -6,3 +6,6 @@
 # Quality requirements relaxed
 
 # Shows how routing decisions change each time.
+
+# You solved the LP and got optimal assignments. But the real world changes. Prices change. Quality requirements change. Budgets get added.
+# Sensitivity analysis asks: "If something changes, does our routing decision change too?"
